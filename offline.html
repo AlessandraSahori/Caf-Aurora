@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8b5e3c">
+  <title>Sin conexión | Café Aurora</title>
+  <link rel="stylesheet" href="CSS/estilos.css">
+  <style>
+    body{min-height:100vh;display:grid;place-items:center;text-align:center;padding:24px;background:#fff8ef;color:#3d291d}
+    main{max-width:620px;background:white;padding:40px;border-radius:20px;box-shadow:0 8px 30px #0001}
+    a{display:inline-block;margin-top:18px;padding:12px 20px;border-radius:8px;background:#8b5e3c;color:white;text-decoration:none}
+  </style>
+
+    <!-- Configuración PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#8b5e3c">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body><main><h1>☕ Café Aurora</h1><h2>Estás sin conexión</h2><p>No pudimos cargar esta página. Comprueba tu conexión o vuelve a una página que hayas visitado antes.</p><a href="index.html">Volver al inicio</a></main>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => console.log("Service Worker registrado"))
+      .catch(error => console.error("Error al registrar Service Worker:", error));
+  });
+}
+</script>
+</body>
+</html>
